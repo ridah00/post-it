@@ -1,0 +1,61 @@
+body section {
+  display: flex;
+}
+body section .form_section {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: grey;
+}
+body section .form_section form {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+body section .form_section form p {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+body section .posti_section {
+  display: flex;
+  flex-wrap: wrap;
+}
+body section .posti_section .card {
+  background-color: #CAFDCA;
+  width: 10rem;
+  height: 12rem;
+  margin: 1rem;
+  box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+}
+body section .posti_section .card p {
+  font-family: "Reenie Beanie", cursive;
+  font-size: 2rem;
+}
+body section .posti_section .card:nth-child(even) {
+  background-color: #CACAFC;
+  transform: rotate(4deg);
+  position: relative;
+  top: 5px;
+}
+body section .posti_section .card:nth-child(3n) {
+  background-color: #CAFDCA;
+  transform: rotate(-4deg);
+  position: relative;
+  top: -5px;
+}
+body section .posti_section .card:nth-child(5n) {
+  background-color: #ffc;
+  transform: rotate(6deg);
+  position: relative;
+  top: -10px;
+}
+body section .posti_section .card:hover, body section .posti_section .card:focus {
+  box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
+  transform: scale(1.25);
+  position: relative;
+  z-index: 5;
+}
+body section #reset {
+  background: red;
+}/*# sourceMappingURL=style.css.map */

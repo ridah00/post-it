@@ -1,0 +1,64 @@
+body {
+  section {
+    display: flex;
+    .form_section {
+      display: flex;
+      justify-content: center;
+      height: 100vh;
+
+      background-color: grey;
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+        p {
+          display: flex;
+          flex-direction: column;
+          text-align: center;
+        }
+      }
+    }
+    .posti_section {
+      display: flex;
+      flex-wrap: wrap;
+      .card {
+        background-color: #CAFDCA;
+        width: 10rem;
+        height: 12rem;
+        margin: 1rem;
+        box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+        p {
+          font-family: "Reenie Beanie", cursive;
+          font-size: 2rem;
+        }
+      }
+      .card:nth-child(even) {
+        background-color: #CACAFC;
+        transform:rotate(4deg);
+        position:relative;
+        top:5px;
+      }
+      .card:nth-child(3n) {
+        background-color: #CAFDCA;
+        transform:rotate(-4deg);
+        position:relative;
+        top:-5px;
+      }
+      .card:nth-child(5n) {
+        background-color: #ffc;
+        transform:rotate(6deg);
+        position:relative;
+        top:-10px;
+      }
+      .card:hover,.card:focus{
+        box-shadow:10px 10px 7px rgba(0,0,0,.7);
+        transform: scale(1.25);
+        position:relative;
+        z-index:5;
+      }
+    }
+    #reset {
+      background: red;
+    }
+  }
+}
