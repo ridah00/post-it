@@ -1,64 +1,333 @@
+$trashColor1: #95afc0;
+$trashColor2: #535c68;
+$trashColor3: #dff9fb;
+$transition: all 0.2s ease-in-out;
 body {
+  background: #66ab6d !important ;
   section {
+    position: relative;
     display: flex;
     .form_section {
-      display: flex;
-      justify-content: center;
-      height: 100vh;
-
-      background-color: grey;
+      height:max-content;
+      // background-color: grey;
       form {
+        padding: 1rem;
         display: flex;
         flex-direction: column;
         gap: 3rem;
+        label{
+          font-weight: bold;
+          font-family: Arial, Helvetica, sans-serif;
+        }
         p {
           display: flex;
           flex-direction: column;
-          text-align: center;
+        }
+        input , textarea , .noselect {
+          box-shadow: 5px 5px 5px black !important;
+        }
+
+        /* From Uiverse.io by UtariD86 */
+        .ajouter {
+          width: 150px;
+          height: 50px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          background: #00a600;
+          border: none;
+          border-radius: 5px;
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+          background: #00a600;
+        }
+
+        .ajouter,
+        .ajouter span {
+          transition: 200ms;
+        }
+
+        .ajouter .text {
+          transform: translateX(35px);
+          color: white;
+          font-weight: bold;
+        }
+
+        .ajouter .icon {
+          position: absolute;
+          border-left: 1px solid #007300;
+          transform: translateX(110px);
+          height: 40px;
+          width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .ajouter svg {
+          width: 15px;
+          fill: #eee;
+        }
+
+        .ajouter:hover {
+          background: #00a600;
+        }
+
+        .ajouter:active {
+          background: #00cc00;
+        }
+
+        .ajouter:hover .text {
+          color: transparent;
+        }
+
+        .ajouter:hover .icon {
+          width: 150px;
+          border-left: none;
+          transform: translateX(0);
+        }
+
+        .ajouter:focus {
+          outline: none;
+        }
+
+        .ajouter:active .icon svg {
+          transform: scale(0.8);
+        }
+
+        .buttonSpan {
+          color: white;
+          margin: 150px;
+          font-size: 30px;
+        }
+
+        /* From Uiverse.io by cssbuttons-io */
+        .effacer {
+          width: 150px;
+          height: 50px;
+          cursor: pointer;
+          display: flex;
+          align-items: center;
+          background: red;
+          border: none;
+          border-radius: 5px;
+          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
+          background: #e62222;
+        }
+
+        .effacer,
+        .effacer span {
+          transition: 200ms;
+        }
+
+        .effacer .text {
+          transform: translateX(35px);
+          color: white;
+          font-weight: bold;
+        }
+
+        .effacer .icon {
+          position: absolute;
+          border-left: 1px solid #c41b1b;
+          transform: translateX(110px);
+          height: 40px;
+          width: 40px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .effacer svg {
+          width: 15px;
+          fill: #eee;
+        }
+
+        .effacer:hover {
+          background: #ff3636;
+        }
+
+        .effacer:hover .text {
+          color: transparent;
+        }
+
+        .effacer:hover .icon {
+          width: 150px;
+          border-left: none;
+          transform: translateX(0);
+        }
+
+        .effacer:focus {
+          outline: none;
+        }
+
+        .effacer:active .icon svg {
+          transform: scale(0.8);
         }
       }
     }
     .posti_section {
+      clear: both;
       display: flex;
       flex-wrap: wrap;
       .card {
-        background-color: #CAFDCA;
+        position: relative;
+        overflow: hidden;
+        background-color: #cafdca;
+
         width: 10rem;
-        height: 12rem;
+        height: fit-content;
         margin: 1rem;
-        box-shadow: 5px 5px 7px rgba(33,33,33,.7);
+        box-shadow: 5px 5px 7px rgba(33, 33, 33, 0.7);
+
         p {
           font-family: "Reenie Beanie", cursive;
           font-size: 2rem;
         }
       }
+
       .card:nth-child(even) {
-        background-color: #CACAFC;
-        transform:rotate(4deg);
-        position:relative;
-        top:5px;
+        background-color: #cacafc;
+        transform: rotate(4deg);
+        position: relative;
+        top: 5px;
       }
       .card:nth-child(3n) {
-        background-color: #CAFDCA;
-        transform:rotate(-4deg);
-        position:relative;
-        top:-5px;
+        background-color: #cafdca;
+        transform: rotate(-4deg);
+        position: relative;
+        top: -5px;
       }
       .card:nth-child(5n) {
         background-color: #ffc;
-        transform:rotate(6deg);
-        position:relative;
-        top:-10px;
+        transform: rotate(6deg);
+        position: relative;
+        top: -10px;
       }
-      .card:hover,.card:focus{
-        box-shadow:10px 10px 7px rgba(0,0,0,.7);
+      .card:hover,
+      .card:focus {
+        box-shadow: 10px 10px 7px rgba(0, 0, 0, 0.7);
         transform: scale(1.25);
-        position:relative;
-        z-index:5;
+        position: relative;
+        z-index: 1;
       }
     }
     #reset {
       background: red;
     }
+    .trash-box {
+      z-index: 2;
+      width: 5rem;
+      height: 5rem;
+      position: fixed;
+      bottom: 5rem;
+      right: 10rem;
+      //Hover
+      &:hover {
+        cursor: pointer;
+      }
+      &:hover .trash-top {
+        //open the lid
+        transform: translate(-50%, -15%) rotate(-20deg);
+      }
+
+      &:hover .trash-btm {
+        //rotate the bottom a little
+        transform: translate(-50%, -100%) rotate(5deg);
+      }
+
+      &:hover .trash {
+        top: 50%;
+        transform: translate(-42%, -50%) rotate(35deg); //comes from bottom
+      }
+
+      //trash-lid
+      .trash-top {
+        position: absolute;
+        top: 15%;
+        left: 50%;
+        transform: translate(-50%, -15%);
+        width: 80%;
+        height: 15%;
+        background: $trashColor1;
+        border-radius: 5px;
+        transform-origin: left bottom;
+        transition: $transition;
+
+        /* //the top of lid */
+        &::before {
+          content: "";
+          position: absolute;
+          bottom: 95%;
+          left: 50%;
+          transform: translate(-50%);
+          width: 30%;
+          height: 80%;
+          background: inherit;
+          border-radius: 5px 5px 0 0;
+        }
+      }
+
+      /* //trash-can-bottom */
+      .trash-btm {
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        width: 70%;
+        height: 65%;
+        background: $trashColor1;
+        border-radius: 5px;
+        transform-origin: left 70%; //transform left-side and 70% from top
+        transition: $transition;
+
+        /* //lines in the middle */
+        .trash-lines {
+          /* //centering */
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          /* // */
+          width: 60%;
+          height: 80%;
+          display: flex;
+          justify-content: space-around; //or space-between
+
+          .trash-line {
+            width: 20%;
+            height: 100%;
+            background: darken($trashColor1, 10%); //make color 10% darker
+            border-radius: 3px;
+          }
+        }
+      }
+      /* //trash in(behind) the can */
+
+      .trash {
+        position: absolute;
+        top: 80%;
+        left: 38%;
+        transform: translate(-38%, -80%) rotate(35deg);
+        width: 40%;
+        height: 40%;
+        background: $trashColor3;
+        border-radius: 2px;
+        transition: $transition;
+
+        /* //second trash */
+        &::before {
+          content: "";
+          position: absolute;
+          transform: translate(30%, -20%) rotate(25deg);
+          width: 100%;
+          height: 100%;
+          background: darken($trashColor3, 10%);
+          border-radius: 2px;
+        }
+      }
+    }
   }
+}
+
+@media (max-width:560px){
+
 }

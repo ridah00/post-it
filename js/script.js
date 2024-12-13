@@ -18,16 +18,20 @@ function creer_une_postit() {
     alert("Ya pas de texte");
   }
 }
-function effacer_note() {
+function effacer_tout() {
   document.querySelector(".posti_section").innerHTML = "";
 }
 
-document.querySelector("#reset").addEventListener("click", function () {
-  effacer_note();
-});
+
 document.querySelector("#submit").addEventListener("click", function () {
   creer_une_postit();
 });
+
+document.querySelector("#effacer").addEventListener("click", function (){ 
+  document.querySelector("#note_title").value="";
+            document.querySelector("#note_text").value="";
+}
+)
 
   function supprimer_note(i){
     let child = document.querySelector(`#note${i}`);
