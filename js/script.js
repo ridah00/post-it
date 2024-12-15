@@ -4,7 +4,7 @@ function creer_une_postit() {
   let texte_note = document.querySelector("#note_text").value;
   if (titre_note != "" && texte_note != "") {
     
-    document.querySelector(".posti_section").innerHTML += `<div id="note${n}" class="card text-center mb-1" >
+    document.querySelector(".posti_section").innerHTML += `<div id="note${n}" class="card text-center " >
                 <div class="card-body">
                     <button type="button"  onclick="supprimer_note(${n})" class="btn-close position-absolute top-0 end-0 p-2" aria-label="Close"></button>
                     <h2 class="card-title">${titre_note}</h2>

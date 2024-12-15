@@ -8,14 +8,14 @@ body {
     position: relative;
     display: flex;
     .form_section {
-      height:max-content;
+      height: max-content;
       // background-color: grey;
       form {
         padding: 1rem;
         display: flex;
         flex-direction: column;
-        gap: 3rem;
-        label{
+        gap: 1rem;
+        label {
           font-weight: bold;
           font-family: Arial, Helvetica, sans-serif;
         }
@@ -23,7 +23,9 @@ body {
           display: flex;
           flex-direction: column;
         }
-        input , textarea , .noselect {
+        input,
+        textarea,
+        .noselect {
           box-shadow: 5px 5px 5px black !important;
         }
 
@@ -37,7 +39,6 @@ body {
           background: #00a600;
           border: none;
           border-radius: 5px;
-          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
           background: #00a600;
         }
 
@@ -110,7 +111,6 @@ body {
           background: red;
           border: none;
           border-radius: 5px;
-          box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
           background: #e62222;
         }
 
@@ -210,9 +210,7 @@ body {
         z-index: 1;
       }
     }
-    #reset {
-      background: red;
-    }
+
     .trash-box {
       z-index: 2;
       width: 5rem;
@@ -220,17 +218,15 @@ body {
       position: fixed;
       bottom: 5rem;
       right: 10rem;
-      //Hover
+
       &:hover {
         cursor: pointer;
       }
       &:hover .trash-top {
-        //open the lid
         transform: translate(-50%, -15%) rotate(-20deg);
       }
 
       &:hover .trash-btm {
-        //rotate the bottom a little
         transform: translate(-50%, -100%) rotate(5deg);
       }
 
@@ -328,6 +324,17 @@ body {
   }
 }
 
-@media (max-width:560px){
-
+@media (max-width: 560px) {
+  body {
+    section {
+      .form_section{
+        position: sticky;
+        top: 0;
+      }
+      .trash-box {
+        left: 5rem;
+        bottom: 20rem;
+      }
+    }
+  }
 }
